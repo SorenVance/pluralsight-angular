@@ -1,4 +1,6 @@
-template: `
 <h1>Hello {{title}}</h1>
 <div [style.color]="myColor">Welcome to the page {{name}}</div>
+<input type="text" [value]="name" (keyup.enter)="name = $event.target.value">
+
+<input type="text" [(ngModel)]="name">
 <button (click)="changeColor()">Change Color</button>
