@@ -1,17 +1,18 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {CustomerService} from "./customer.service";
 
 @Component({
     moduleId: __moduleName,
     selector: 'app-customers',
-    templateUrl: 'customers.component.html'
+    templateUrl: 'customers.component.html',
+    providers: [CustomerService]
 })
 export class CustomersComponent implements OnInit {
-    customers = [
-        {id: 1, name: 'Steve'},
-        {id: 2, name: 'Sergio'},
-        {id: 3, name: 'JC'}
-    ];
+    customers: any[];
 
-    constructor() {}
-    ngOnInit() {}
+    constructor(@Inject(CustomerService) private _customerService: CustomerService) {}
+
+    ngOnInit() {
+        this.customers = CustomerService.getCustomers();
+    }
 }

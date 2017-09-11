@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
     moduleId: __moduleName,
@@ -12,6 +12,8 @@ export class AppComponent  {
     title = 'Angular';
     name = 'Steve';
     myColor = 'red';
+
+
 
     changeColor() {
         this.myColor = this.myColor === 'blue' ? 'red' : 'blue';
