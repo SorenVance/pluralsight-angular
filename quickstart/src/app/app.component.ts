@@ -1,9 +1,12 @@
 import {Component} from '@angular/core';
 
+import { HttpModule } from '@angular/http';
+
 @Component({
     moduleId: __moduleName,
     selector: 'my-app',
-    templateUrl: 'app.component.html'
+    templateUrl: 'app.component.html',
+    providers: [HttpModule]
 })
 export class AppComponent  {
     //[] = property binding - Component to Dom
@@ -12,8 +15,6 @@ export class AppComponent  {
     title = 'Angular';
     name = 'Steve';
     myColor = 'red';
-
-
 
     changeColor() {
         this.myColor = this.myColor === 'blue' ? 'red' : 'blue';

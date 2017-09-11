@@ -1,5 +1,6 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CustomerService} from "./customer.service";
+import {Observable} from "rxjs/Observable";
 
 @Component({
     moduleId: __moduleName,
@@ -8,11 +9,11 @@ import {CustomerService} from "./customer.service";
     providers: [CustomerService]
 })
 export class CustomersComponent implements OnInit {
-    customers: any[];
+    customers: Observable<any[]>;
 
-    constructor(@Inject(CustomerService) private _customerService: CustomerService) {}
+    constructor(private _customerService: CustomerService) {}
 
     ngOnInit() {
-        this.customers = CustomerService.getCustomers();
+        this.customers = this._customerService.getCustomers();
     }
 }
